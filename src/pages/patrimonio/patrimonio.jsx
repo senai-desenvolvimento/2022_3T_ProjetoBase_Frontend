@@ -7,6 +7,8 @@ import './style.css';
 
 import axios from 'axios';
 
+import LerConteudoDeImagem , {LerJSON} from '../../services/ocr'
+
 export const Patrimonio = () => {
     
     // Cadastrar
@@ -69,6 +71,21 @@ export const Patrimonio = () => {
       .catch(erro => console.log(erro))
     }
 
+    const LerOCR = (event) => {
+
+      event.preventDefault();
+
+      var formData = new FormData();
+
+      const element = document.getElementById('codigo')
+      const file = element.files[0]
+      formData.append('codigo', file, file.name) 
+
+      let resultado_OCR = LerConteudoDeImagem(formData);
+      resultado_OCR.then(res => setDescricao(res));
+
+    }
+
     useEffect(() => {
       Listar();      
     },[]);
@@ -100,6 +117,8 @@ export const Patrimonio = () => {
                 value={descricao}
                 onChange={(e) => setDescricao(e.target.value)}
               />
+
+              <input type="file" id="codigo" accept="image/png, image/jpeg" onChange={(e) => LerOCR(e)} />
 
               <label htmlFor="ativo">
               <input 
