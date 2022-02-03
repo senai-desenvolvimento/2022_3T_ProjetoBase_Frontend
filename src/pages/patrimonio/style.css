@@ -1,0 +1,72 @@
+h2{
+    color: #6f47ff;
+    text-transform: uppercase;
+    text-align: center;    
+    margin-top: 80px;
+}
+
+input{
+    margin: 20px 0;
+}
+
+input:focus-visible{
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn__cadastro{
+    background-color: #6f47ff;
+    width: 350px;
+}
+
+.card{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    justify-content: space-evenly;
+    width: 650px;
+    margin: 20px auto;
+}
+
+.card img{
+    width: 150px;
+    height: 150px;
+}
+
+.card h4{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.card div{
+    display: flex;
+    flex-direction: column;
+}
+
+.card div h4,
+.card div span{
+    margin: 20px 0;
+}
+
+.excluir{
+    background-color: #ff474b;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    cursor: pointer;
+}
+
+.excluir:hover{
+    background-color: #ff474ab6;
+}
