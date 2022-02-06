@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Link, useHistory } from 'react-router-dom';
+// import { useState, useEffect } from 'react';
+// import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 import "../../assets/css/flexbox.css"
 import "../../assets/css/reset.css"
@@ -10,45 +10,45 @@ import logo from '../../assets/img/logo.png'
 import Rodape from "../../components/rodape/rodape";
 
 function App() {
-  const [ listaEventos, setListaEventos ] = useState( [] );
-  let history = useHistory();
+  // const [ listaEventos, setListaEventos ] = useState( [] );
+  // let history = useHistory();
 
-  function buscarEventos(){
-    axios('http://localhost:5000/api/Eventos')
-    .then(resposta => {
-      if (resposta.status === 200) {
-        console.log('Os eventos foram atualizados');
-        setListaEventos( resposta.data );
-        // console.log(history);
-      }
-    })
-    .catch(erro => console.log(erro));
-  };
+  // function buscarEventos(){
+  //   axios('http://localhost:5000/api/Eventos')
+  //   .then(resposta => {
+  //     if (resposta.status === 200) {
+  //       console.log('Os eventos foram atualizados');
+  //       setListaEventos( resposta.data );
+  //       // console.log(history);
+  //     }
+  //   })
+  //   .catch(erro => console.log(erro));
+  // };
 
-  useEffect( buscarEventos, [] );
+  // useEffect( buscarEventos, [] );
 
-  function inscrever(evento){
-    console.log(evento);
+  // function inscrever(evento){
+  //   console.log(evento);
 
-    axios.post('http://localhost:5000/api/presencas/inscricao/' + evento.idEvento, {}, {
-        headers : {
-            'Authorization' : 'Bearer ' + localStorage.getItem('usuario-login')
-        }
-    })
-    .then(resposta => {
-      if (resposta.status === 201) {
-        console.log('Inscrição realizada com sucesso!');
-        history.push("/meusEventos");
-      }
-    })
-    // .catch(erro => console.log(erro));
-    .catch(erro => {
-      // console.log(erro.toJSON());
-      if (erro.toJSON().status === 401) {
-        history.push("/login");
-      }
-    });
-  };
+  //   axios.post('http://localhost:5000/api/presencas/inscricao/' + evento.idEvento, {}, {
+  //       headers : {
+  //           'Authorization' : 'Bearer ' + localStorage.getItem('usuario-login')
+  //       }
+  //   })
+  //   .then(resposta => {
+  //     if (resposta.status === 201) {
+  //       console.log('Inscrição realizada com sucesso!');
+  //       history.push("/meusEventos");
+  //     }
+  //   })
+  //   // .catch(erro => console.log(erro));
+  //   .catch(erro => {
+  //     // console.log(erro.toJSON());
+  //     if (erro.toJSON().status === 401) {
+  //       history.push("/login");
+  //     }
+  //   });
+  // };
 
   return (
     <div>

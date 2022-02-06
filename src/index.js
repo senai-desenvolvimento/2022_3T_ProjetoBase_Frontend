@@ -31,18 +31,18 @@ const PermissaoAdm = ({ component: Component }) => (
   />
 );
 
-const PermissaoComum = ({ component: Component }) => (
-  <Route
-    render={(props) =>
-      usuarioAutenticado() && parseJwt().role === '2' ? (
-        // operador spread
-        <Component {...props} />
-      ) : (
-        <Redirect to="login" />
-      )
-    }
-  />
-);
+// const PermissaoComum = ({ component: Component }) => (
+//   <Route
+//     render={(props) =>
+//       usuarioAutenticado() && parseJwt().role === '2' ? (
+//         // operador spread
+//         <Component {...props} />
+//       ) : (
+//         <Redirect to="login" />
+//       )
+//     }
+//   />
+// );
 
 const routing = (
   <Router>

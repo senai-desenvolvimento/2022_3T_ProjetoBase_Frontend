@@ -12,8 +12,8 @@ export const Patrimonio = () => {
     // Cadastrar
     const[nomePatrimonio, setNomePatrimonio] = useState('');
     const[descricao, setDescricao] = useState('');
-    const[imagem, setImagem] = useState('');
-    const[dataCadastro, setDataCadastro] = useState('02/02/2022');
+    const[imagem] = useState('');
+    const[dataCadastro] = useState('02/02/2022');
     const[ativo, setAtivo] = useState(true);
 
     // Listar
