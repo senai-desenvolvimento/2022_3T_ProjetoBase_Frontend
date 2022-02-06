@@ -58,9 +58,6 @@ function App() {
 
           <nav className="cabecalhoPrincipal-nav">
             <Link to="/">Home</Link>
-            {/*<Link to="/meusEventos">Meus eventos</Link>*/}
-            {/*<a href="#conteudoPrincipal-contato">Contato</a>*/}
-            {/* <a className="cabecalhoPrincipal-nav-login" href="/login">Login</a> */}
             <Link className="cabecalhoPrincipal-nav-login" to="/login">Login</Link>
           </nav>
         </div>
