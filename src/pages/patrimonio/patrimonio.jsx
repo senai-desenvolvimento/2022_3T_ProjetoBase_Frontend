@@ -6,6 +6,7 @@ import Titulo from "../../components/titulo/titulo";
 import './style.css';
 
 import axios from 'axios';
+import { LerConteudoDaImagem } from "../../services/ocr";
 
 export const Patrimonio = () => {
     
@@ -26,8 +27,8 @@ export const Patrimonio = () => {
       
       var formData = new FormData();
       
-      const element = document.getElementById('arquivo')
-      const file = element.files[0]
+      const target = document.getElementById('arquivo')
+      const file = target.files[0]
       formData.append('arquivo', file, file.name)
       
       formData.append('id', 0);
@@ -69,6 +70,21 @@ export const Patrimonio = () => {
       .catch(erro => console.log(erro))
     }
 
+    const LerOCR = (event) => {
+
+      event.preventDefault();
+
+      var formData = new FormData();
+
+      const element = document.getElementById("codigo");
+      const file = element.files[0];
+
+      formData.append("url", file, file.name);
+
+      let resultado_OCR = LerConteudoDaImagem(formData);
+      resultado_OCR.then(res => setDescricao(res))
+    }
+
     useEffect(() => {
       Listar();      
     },[]);
@@ -99,6 +115,13 @@ export const Patrimonio = () => {
                 placeholder="Código do Patrimonio"
                 value={descricao}
                 onChange={(e) => setDescricao(e.target.value)}
+              />
+
+              <input 
+                type="file" 
+                id="codigo" 
+                accept="image/png, image/jpeg" 
+                onChange={(e) => LerOCR(e)} 
               />
 
               <label htmlFor="ativo">
